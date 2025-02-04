@@ -1,0 +1,113 @@
+@use '@/styles/typography' as Typography;
+@use '@/styles/colors' as Colors;
+
+.button {
+  width: var(--width, auto);
+  height: var(--height, auto);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0 24px;
+  border-radius: 4px;
+
+  &:disabled {
+    cursor: default;
+  }
+
+  @mixin ButtonNormal {
+    color: Colors.$gray-90;
+    background: Colors.$white;
+    border: 1px solid Colors.$gray-60;
+
+    &:hover {
+      background: Colors.$gray-5;
+    }
+
+    &:active {
+      background: Colors.$gray-10;
+    }
+
+    &:disabled {
+      color: Colors.$gray-50;
+      background: Colors.$gray-20;
+      border: none;
+    }
+  }
+
+  @mixin ButtonPrimary {
+    color: Colors.$white;
+    background: Colors.$primary-50;
+
+    &:hover {
+      background: Colors.$primary-60;
+    }
+
+    &:active {
+      background: Colors.$primary-70;
+    }
+
+    &:disabled {
+      color: Colors.$gray-50;
+      background: Colors.$gray-20;
+    }
+  }
+
+  @mixin ButtonSecondary {
+    color: Colors.$primary-60;
+    background: Colors.$primary-5;
+    border: 1px solid Colors.$primary-50;
+
+    &:hover {
+      background: Colors.$primary-10;
+    }
+
+    &:active {
+      background: Colors.$primary-20;
+    }
+
+    &:disabled {
+      color: Colors.$gray-50;
+      background: Colors.$gray-20;
+      border: none;
+    }
+  }
+
+  &.btn48Normal,
+  &.btn48Primary,
+  &.btn48Secondary {
+    min-height: 48px;
+  }
+
+  &.btn40Normal,
+  &.btn40Primary,
+  &.btn40Secondary {
+    min-height: 40px;
+  }
+
+  &.btn32Normal,
+  &.btn32Primary,
+  &.btn32Secondary {
+    min-height: 32px;
+  }
+
+  &.btn48Normal,
+  &.btn40Normal,
+  &.btn32Normal {
+    @include ButtonNormal;
+  }
+
+  &.btn48Primary,
+  &.btn40Primary,
+  &.btn32Primary {
+    @include ButtonPrimary;
+  }
+
+  &.btn48Secondary,
+  &.btn40Secondary,
+  &.btn32Secondary {
+    @include ButtonSecondary;
+  }
+}
