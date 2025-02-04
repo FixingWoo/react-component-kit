@@ -1,0 +1,72 @@
+$typography-size-map: (
+  'large': 60px,
+  'medium': 44px,
+  'small': 36px,
+  'h1': 40px,
+  'h2': 32px,
+  'h3': 24px,
+  'h4': 19px,
+  'h5': 17px,
+  'h6': 15px,
+  'body19': 19px,
+  'body17': 17px,
+  'body15': 15px,
+  'body13': 13px,
+);
+
+@mixin Typography(
+  $font-family,
+  $size,
+  $weight,
+  $line-height,
+  $letter-spacing,
+  $text-align
+) {
+  font-family: $font-family;
+  font-size: map-get($typography-size-map, $size);
+  font-weight: $weight;
+  line-height: $line-height;
+  letter-spacing: $letter-spacing;
+  text-align: $text-align;
+}
+
+@mixin Typography-kr(
+  $size,
+  $weight,
+  $line-height,
+  $letter-spacing,
+  $text-align
+) {
+  @include Typography(
+    var(--font-Noto-Sans-KR),
+    $size,
+    $weight,
+    $line-height,
+    $letter-spacing,
+    $text-align
+  );
+}
+
+@mixin h1-40bold {
+  @include Typography-kr('h1', 700, 150%, 1px, left);
+}
+
+@mixin h2-32bold {
+  @include Typography-kr('h2', 700, 150%, 1px, left);
+}
+
+@mixin h3-24bold {
+  @include Typography-kr('h3', 700, 150%, 0px, left);
+}
+
+@mixin h4-19bold {
+  @include Typography-kr('h4', 700, 150%, 0px, left);
+}
+
+@mixin h5-17bold {
+  @include Typography-kr('h5', 700, 150%, 0px, left);
+}
+
+@mixin h6-15bold {
+  @include Typography-kr('h6', 700, 150%, 0px, left);
+}
