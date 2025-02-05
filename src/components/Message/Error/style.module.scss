@@ -1,0 +1,14 @@
+@use '@/styles/typography' as Typography;
+@use '@/styles/colors' as Colors;
+
+.wrapper {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+
+  .message {
+    @include Typography.body-13regular;
+    color: Colors.$error-60;
+    height: 16px;
+  }
+}

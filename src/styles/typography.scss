@@ -70,3 +70,15 @@ $typography-size-map: (
 @mixin h6-15bold {
   @include Typography-kr('h6', 700, 150%, 0px, left);
 }
+
+@mixin body-19regular {
+  @include Typography-kr('body19', 400, 150%, 0px, left);
+}
+
+@mixin body-15regular {
+  @include Typography-kr('body15', 400, 150%, 0px, left);
+}
+
+@mixin body-13regular {
+  @include Typography-kr('body13', 400, 150%, 0px, left);
+}

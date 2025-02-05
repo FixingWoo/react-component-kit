@@ -4,13 +4,16 @@ import cn from 'classnames';
 import styles from './style.module.scss';
 
 import Smile from '@/assets/icons/icon_smile.svg';
+import Error from '@/assets/icons/icon_error.svg';
 
 export enum IconName {
   SMILE = 'smile',
+  ERROR = 'error',
 }
 
 const ICONS: { [key in IconName]: React.ReactNode } = {
   [IconName.SMILE]: <Smile />,
+  [IconName.ERROR]: <Error />,
 };
 
 interface IProps extends HTMLAttributes<HTMLSpanElement> {
