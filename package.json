@@ -26,6 +26,7 @@
     "@storybook/blocks": "^8.5.3",
     "@storybook/nextjs": "^8.5.3",
     "@storybook/test": "^8.5.3",
+    "@svgr/webpack": "^8.1.0",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
@@ -35,6 +36,7 @@
     "postcss": "^8",
     "sass": "^1.83.4",
     "storybook": "^8.5.3",
+    "tsconfig-paths-webpack-plugin": "^4.1.0",
     "typescript": "^5"
   },
   "eslintConfig": {

@@ -5,9 +5,12 @@ import path from 'path';
 const config: StorybookConfig = {
   stories: ['../src/**/*.mdx', '../src/**/*.stories.@(js|jsx|mjs|ts|tsx)'],
   addons: [
+    '@storybook/addon-onboarding',
+    '@storybook/addon-links',
     '@storybook/addon-essentials',
     '@chromatic-com/storybook',
-    '@storybook/addon-a11y',
+    '@storybook/addon-interactions',
+    '@storybook/addon-styling-webpack',
   ],
   framework: {
     name: '@storybook/nextjs',
@@ -16,6 +19,7 @@ const config: StorybookConfig = {
   docs: {
     autodocs: 'tag',
   },
+  staticDirs: ['../public'],
   webpackFinal: async (config) => {
     if (config.resolve) {
       config.resolve.plugins = [new TsconfigPathsPlugin()];
@@ -25,7 +29,29 @@ const config: StorybookConfig = {
       };
     }
 
+    const imageRule = config.module?.rules?.find((rule) => {
+      const test = (rule as { test: RegExp }).test;
+
+      if (!test) {
+        return false;
+      }
+
+      return test.test('.svg');
+    }) as { [key: string]: any };
+
+    imageRule.exclude = /\.svg$/;
+
+    config.module?.rules?.push({
+      test: /\.svg$/,
+      use: ['@svgr/webpack'],
+    });
+
     return config;
   },
+  env: (config) => ({
+    ...config,
+    NEXT_PUBLIC_API_URL: process.env.NEXT_PUBLIC_API_URL || '',
+    NEXT_PUBLIC_NCP_CLIENT_ID: process.env.NEXT_PUBLIC_NCP_CLIENT_ID || '',
+  }),
 };
 export default config;
