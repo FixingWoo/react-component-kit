@@ -1,0 +1,43 @@
+@use '@/styles/typography' as Typography;
+@use '@/styles/colors' as Colors;
+
+.wrapper {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+
+  .label {
+    @include Typography.body-15regular;
+    color: Colors.$gray-90;
+  }
+
+  .input {
+    @include Typography.body-19regular;
+    text-align: left;
+    border-radius: 8px;
+    padding: 0 16px;
+
+    color: Colors.$gray-90;
+    background-color: Colors.$white;
+    border: 1px solid Colors.$gray-60;
+
+    &::placeholder {
+      color: Colors.$gray-40;
+    }
+
+    &:focus {
+      border-color: Colors.$primary-50;
+    }
+
+    &.error {
+      border-color: Colors.$error-50;
+    }
+
+    &:disabled {
+      color: Colors.$gray-50;
+      background-color: Colors.$gray-20;
+      border-color: Colors.$gray-30;
+    }
+  }
+}
