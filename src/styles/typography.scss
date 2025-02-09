@@ -75,6 +75,10 @@ $typography-size-map: (
   @include Typography-kr('body19', 400, 150%, 0px, left);
 }
 
+@mixin body-17regular {
+  @include Typography-kr('body17', 400, 150%, 0px, left);
+}
+
 @mixin body-15regular {
   @include Typography-kr('body15', 400, 150%, 0px, left);
 }
