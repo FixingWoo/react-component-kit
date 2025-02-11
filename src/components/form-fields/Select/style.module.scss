@@ -1,0 +1,79 @@
+@use '@/styles/typography' as Typography;
+@use '@/styles/colors' as Colors;
+
+.selectWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+
+  .label {
+    @include Typography.body-15regular;
+    color: Colors.$gray-90;
+  }
+
+  .select {
+    @mixin Icon {
+      background-image: url('data:image/svg+xml;utf8,<svg width="12" height="12" viewBox="0 0 240 240" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M27 66L120.752 165L213 66" stroke="black" stroke-width="16"/></svg>');
+      background-repeat: no-repeat;
+      background-position-x: calc(100% - 12px);
+      background-position-y: calc(50% - 1px);
+    }
+
+    @include Icon;
+    @include Typography.body-15regular;
+
+    min-width: 150px;
+    width: var(--width, auto);
+    text-align: left;
+    color: Colors.$gray-90;
+    background-color: Colors.$white;
+    border: 1px solid Colors.$gray-60;
+    border-radius: 8px;
+    text-indent: 1px;
+    text-overflow: '';
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    padding: 0 16px;
+
+    &:not(:disabled) {
+      &:hover,
+      &:focus {
+        color: Colors.$gray-90;
+      }
+
+      &:hover {
+        border-color: Colors.$primary-50;
+      }
+
+      &:focus {
+        border-color: Colors.$primary-50;
+      }
+
+      &.error {
+        border-color: Colors.$error-50;
+      }
+    }
+
+    &:disabled {
+      color: Colors.$gray-50;
+      border-color: Colors.$gray-30;
+      background-color: Colors.$gray-20;
+    }
+
+    &.size32 {
+      min-height: 32px;
+    }
+
+    &.size40 {
+      min-height: 40px;
+    }
+
+    &.size48 {
+      min-height: 48px;
+    }
+
+    &.size56 {
+      min-height: 56px;
+    }
+  }
+}
