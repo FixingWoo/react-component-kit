@@ -1,10 +1,10 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
-import RadioGroup from './index';
+import RadioButton from './index';
 
-const meta: Meta<typeof RadioGroup> = {
-  title: 'Components/form-fields/RadioGroup',
-  component: RadioGroup,
+const meta: Meta<typeof RadioButton> = {
+  title: 'Components/form-fields/RadioButton',
+  component: RadioButton,
   tags: ['autodocs'],
   parameters: {
     layout: 'centered',
@@ -12,11 +12,24 @@ const meta: Meta<typeof RadioGroup> = {
   argTypes: {
     disabled: { control: 'boolean' },
   },
+  decorators: [
+    (Story) => (
+      <div
+        style={{
+          display: 'flex',
+          gap: '8px',
+        }}
+      >
+        <Story />
+        <Story />
+      </div>
+    ),
+  ],
 };
 
 export default meta;
 
-type Story = StoryObj<typeof RadioGroup>;
+type Story = StoryObj<typeof RadioButton>;
 
 export const Default: Story = {
   args: {
@@ -32,15 +45,5 @@ export const WithDisabled: Story = {
     name: 'element',
     label: '레이블',
     disabled: true,
-    checked: true,
-  },
-};
-
-export const WithCheckedDisabled: Story = {
-  args: {
-    name: 'element',
-    label: '레이블',
-    disabled: true,
-    checked: true,
   },
 };

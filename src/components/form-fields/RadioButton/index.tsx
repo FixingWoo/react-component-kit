@@ -8,7 +8,7 @@ interface IProps extends React.InputHTMLAttributes<HTMLInputElement> {
   error?: boolean;
 }
 
-const RadioGroup = React.forwardRef<HTMLInputElement, IProps>(
+const RadioButton = React.forwardRef<HTMLInputElement, IProps>(
   ({ label, error, className, disabled = false, ...props }, ref) => {
     return (
       <label
@@ -34,6 +34,6 @@ const RadioGroup = React.forwardRef<HTMLInputElement, IProps>(
   }
 );
 
-RadioGroup.displayName = 'RadioGroup';
+RadioButton.displayName = 'RadioButton';
 
-export default RadioGroup;
+export default RadioButton;
