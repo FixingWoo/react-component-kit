@@ -11,8 +11,9 @@
     "build-storybook": "storybook build"
   },
   "dependencies": {
-    "@storybook/react": "^8.5.3",
     "@hookform/resolvers": "^3.10.0",
+    "@storybook/react": "^8.5.3",
+    "chromatic": "^11.25.2",
     "classnames": "^2.5.1",
     "next": "15.1.6",
     "react": "^19.0.0",
