@@ -1,0 +1,37 @@
+@use '@/styles/colors' as Colors;
+@use '@/styles/typography' as Typography;
+
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+.container {
+  min-width: 280px;
+  max-width: 280px;
+  background: Colors.$white;
+  padding: 20px;
+  border: 1px solid Colors.$gray-30;
+  border-radius: 12px;
+  box-shadow: 2px 2px 4px 0px #00000033;
+}
+
+.textWrapper {
+  min-height: 60px;
+  word-break: keep-all;
+
+  .text {
+    @include Typography.body-17regular;
+  }
+}
+
+.buttonWrapper {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+}
