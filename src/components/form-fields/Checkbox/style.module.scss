@@ -1,0 +1,73 @@
+@use '@/styles/typography' as Typography;
+@use '@/styles/colors' as Colors;
+
+.checkBoxWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.label {
+  @include Typography.body-19regular;
+
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: Colors.$gray-95;
+
+  .inputWrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+  }
+
+  .input {
+    width: 24px;
+    height: 24px;
+    border: 1px solid Colors.$gray-60;
+    border-radius: 4px;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    position: relative;
+    margin: 0;
+
+    &:disabled {
+      background-color: Colors.$gray-20;
+      border-color: Colors.$gray-30;
+
+      & + .checkIcon {
+        svg path {
+          stroke: Colors.$gray-40;
+        }
+      }
+    }
+
+    &:checked {
+      &:not(:disabled) {
+        background-color: Colors.$primary-50;
+        border-color: Colors.$primary-50;
+      }
+
+      & + .checkIcon {
+        svg path {
+          stroke: Colors.$white;
+        }
+      }
+    }
+  }
+
+  .checkIcon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    svg path {
+      stroke: Colors.$gray-40;
+    }
+  }
+}
