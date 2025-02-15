@@ -49,6 +49,7 @@ const FormWrapper = () => {
 
         return (
           <Dropdown
+            width={'300px'}
             options={DAYS}
             allText={'선택'}
             value={value}
