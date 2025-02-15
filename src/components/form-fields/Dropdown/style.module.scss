@@ -1,0 +1,107 @@
+@use '@/styles/typography' as Typography;
+@use '@/styles/colors' as Colors;
+
+.container {
+  width: fit-content;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  border-radius: 8px;
+
+  .select {
+    @mixin Icon {
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M19.7344 8.40505C20.0628 8.7006 20.0894 9.20643 19.7939 9.53485L12.5947 17.5349C12.443 17.7034 12.2268 17.7997 12 17.7997C11.7732 17.7997 11.5571 17.7035 11.4054 17.5349L4.20537 9.53489C3.9098 9.20648 3.93643 8.70065 4.26484 8.40508C4.59324 8.10951 5.09908 8.13613 5.39464 8.46454L12 15.8038L18.6046 8.46457C18.9001 8.13615 19.4059 8.1095 19.7344 8.40505Z' fill='%2333363D'/%3E%3C/svg%3E");
+    }
+
+    @include Icon;
+    @include Typography.body-19regular;
+
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+
+    background-repeat: no-repeat;
+    background-position-x: calc(100% - 12px);
+    background-position-y: calc(50%);
+
+    min-width: 200px;
+    min-height: 56px;
+    width: var(--width, auto);
+    height: var(--height, auto);
+    text-align: left;
+    text-indent: 1px;
+    border-radius: 8px;
+    padding: 0 16px;
+
+    color: Colors.$gray-90;
+    background-color: Colors.$white;
+    border: 1px solid Colors.$gray-60;
+
+    &:not(.disabled) {
+      &:hover,
+      &:focus,
+      &.open {
+        color: Colors.$gray-90;
+        border-color: Colors.$primary-50;
+        border-width: 2px;
+      }
+
+      &.error {
+        border-color: Colors.$error-50;
+      }
+    }
+
+    &.disabled {
+      color: Colors.$gray-50;
+      border-color: Colors.$gray-30;
+      background-color: Colors.$gray-20;
+    }
+    &.size56 {
+      min-height: 56px;
+    }
+  }
+
+  .options {
+    cursor: pointer;
+    position: absolute;
+    top: 105%;
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    gap: 8px;
+    padding: 8px;
+    background: Colors.$white;
+    border: 1px solid Colors.$gray-20;
+    border-radius: 8px;
+
+    .wrapper {
+      max-height: 252px;
+      overflow-y: auto;
+    }
+
+    .list {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+
+      .item {
+        color: Colors.$black;
+        padding: 10px 8px;
+        border-radius: 5px;
+
+        &:hover {
+          background-color: Colors.$secondary-5;
+        }
+
+        &:active {
+          background-color: Colors.$secondary-10;
+        }
+
+        &.selected {
+          background-color: Colors.$secondary-5;
+        }
+      }
+    }
+  }
+}
