@@ -14,3 +14,19 @@ body {
   margin: 0;
   overflow-y: scroll;
 }
+
+.scrollbar {
+  padding-right: 6px;
+  &::-webkit-scrollbar {
+    display: flex;
+    width: 6px;
+    height: 6px;
+  }
+  &::-webkit-scrollbar-track {
+    background-color: transparent;
+  }
+  &::-webkit-scrollbar-thumb {
+    background-color: Colors.$gray-20;
+    border-radius: 3px;
+  }
+}
